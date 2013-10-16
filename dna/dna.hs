@@ -1,4 +1,5 @@
 import System.Environment(getArgs)
+import Data.List(foldl')
 import Text.Printf
 
 main = do
@@ -9,15 +10,14 @@ main = do
     read_line (filename:_) = readFile filename >>= return . head . lines 
     read_line _ = error "one argument required"
 
-data Counters = Counters { get_A :: !Int
-                         , get_C :: !Int
-                         , get_G :: !Int
-                         , get_T :: !Int
-                         }
-dna strand = foldl go (Counters 0 0 0 0) strand
+data Counters = Counters !Int !Int !Int !Int
+              
+dna = foldl' go (Counters 0 0 0 0) 
   where
-    go (Counters a c g t) 'A' = Counters (a + 1) c g t 
-    go (Counters a c g t) 'C' = Counters a (c +1) g t 
-    go (Counters a c g t) 'G' = Counters a c (g + 1) t 
-    go (Counters a c g t) 'T' = Counters a c g (t + 1)
-    go _ c = error $ "bad strand '" ++ [c] ++ "'"
+    go (Counters a c g t) ch = 
+        case ch of 
+            'A' -> Counters (a + 1) c g t
+            'C' -> Counters a (c +1) g t 
+            'G' -> Counters a c (g + 1) t 
+            'T' -> Counters a c g (t + 1)
+            _   -> error $ "bad strand '" ++ [ch] ++ "'"
