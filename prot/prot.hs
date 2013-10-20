@@ -1,5 +1,6 @@
 import System.Environment(getArgs)
 import Data.List(splitAt, span)
+import Data.Maybe(fromJust)
 import qualified Data.HashMap.Strict as H
 
 main = do
@@ -28,11 +29,7 @@ rna_table = H.fromList [
             ("UGG", 'W'),      ("CGG", 'R'),      ("AGG", 'R'),      ("GGG", 'G')
             ]
 
-prot s = fst (span (/= '_') (map go (triplets s)))
+prot s = fst $ span (/= '_') $ map (\x -> fromJust $ H.lookup x rna_table) $ triplets s
   where
     triplets [] = []
     triplets x = let (x', xs) = splitAt 3 x in x' : triplets xs
-    go x = case H.lookup x rna_table of
-               Just p -> p
-               _ -> error "unknown triplet"
-               
