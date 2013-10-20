@@ -1,5 +1,4 @@
 import System.Environment(getArgs)
-import Data.List(sum)
 import qualified Data.HashMap.Strict as H
 import Data.Maybe(fromJust)
 
