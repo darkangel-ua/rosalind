@@ -1,5 +1,5 @@
 import System.Environment(getArgs)
-import Data.List(foldl')
+import Data.List(sum)
 import qualified Data.HashMap.Strict as H
 import Data.Maybe(fromJust)
 
@@ -32,4 +32,4 @@ get_mass x = fromJust $ H.lookup x $ H.fromList [
     ('W',   186.07931),
     ('Y',   163.06333) 
            ]
-mass = foldl' (\acc x -> acc + get_mass x) 0.0 
+mass = sum . (map get_mass) 
