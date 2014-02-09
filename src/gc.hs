@@ -1,6 +1,7 @@
 import System.Environment(getArgs)
-import Data.List(maximumBy, span, foldl')
+import Data.List(maximumBy, foldl')
 
+main :: IO ()
 main = do
     s <- getArgs >>= read_file
     let (s_id, gc_content) = maximumBy (\(_, lhs) (_, rhs) -> compare lhs rhs) $ to_gc_content (parse_fasta s)
@@ -11,6 +12,7 @@ main = do
     read_file _ = error "one argument required"
 
 -- simple parser that doesn't check any errors
+parse_fasta :: String -> [(String, String)]
 parse_fasta content = go $ lines content 
   where 
     go [] = []

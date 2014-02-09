@@ -1,6 +1,7 @@
 import System.IO
 import Data.List(permutations)
 
+main :: IO ()
 main = do
     n <- input "Enter n: "
     let (c, p) = perm n
@@ -19,6 +20,7 @@ input msg = do
                         else putStrLn "Bad input: Enter positive integer" >> input msg
         _        -> putStrLn "bad input" >> input msg
 
+perm :: Integer -> (Int, [[Integer]])
 perm n = let a = [1..n] 
              p = permutations a
          in (length p, p) 

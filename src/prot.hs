@@ -1,8 +1,8 @@
 import System.Environment(getArgs)
-import Data.List(splitAt, span)
 import Data.Maybe(fromJust)
 import qualified Data.HashMap.Strict as H
 
+main :: IO ()
 main = do
     s <- getArgs >>= read_line
     putStrLn $ prot s
@@ -10,6 +10,7 @@ main = do
     read_line (filename:_) = readFile filename >>= return . head . lines 
     read_line _ = error "one argument required"
 
+rna_table :: H.HashMap String Char
 rna_table = H.fromList [
             ("UUU", 'F'),      ("CUU", 'L'),      ("AUU", 'I'),      ("GUU", 'V'),
             ("UUC", 'F'),      ("CUC", 'L'),      ("AUC", 'I'),      ("GUC", 'V'),
@@ -29,6 +30,7 @@ rna_table = H.fromList [
             ("UGG", 'W'),      ("CGG", 'R'),      ("AGG", 'R'),      ("GGG", 'G')
             ]
 
+prot :: String -> String
 prot s = fst $ span (/= '_') $ map (\x -> fromJust $ H.lookup x rna_table) $ triplets s
   where
     triplets [] = []

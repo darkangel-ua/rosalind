@@ -2,6 +2,7 @@ import System.Environment(getArgs)
 import Data.List(foldl')
 import Text.Printf
 
+main :: IO ()
 main = do
     strand <- getArgs >>= read_line
     let Counters a c g t = dna strand
@@ -12,6 +13,7 @@ main = do
 
 data Counters = Counters !Int !Int !Int !Int
               
+dna :: String -> Counters
 dna = foldl' go (Counters 0 0 0 0) 
   where
     go (Counters a c g t) ch = 

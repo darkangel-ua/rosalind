@@ -1,0 +1,129 @@
+name:           rosalind
+version:        0.1
+cabal-version:  >=1.2
+build-type:     Simple
+
+executable iev
+  build-depends:   
+                   base >= 4,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         iev.hs
+
+executable iprb
+  build-depends:   
+                   base >= 4,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         iprb.hs
+
+executable fibd
+  build-depends:   
+                   base >= 4,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         fibd.hs
+
+executable mrna
+  build-depends:   
+                   base >= 4,
+                   unordered-containers >=0.2.3 && <0.3,
+                   vector >=0.10.0 && <0.11,
+                   bytestring >=0.10.0 && <0.11,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         mrna.hs
+
+executable mprt
+  build-depends:   
+                   base >= 4,
+                   directory >=1.2.0 && <1.3,
+                   HTTP >=4000.2.8 && <4000.3,
+                   regex-tdfa >=1.1.8 && <1.2,
+                   array >=0.4.0 && <0.5,
+                   regex-posix >=0.95.2 && <0.96,
+                   async >=2.0.1 && <2.1,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         mprt.hs
+
+executable lcsm
+  build-depends:   
+                   base >= 4,
+                   hashtables >=1.1.2 && <1.2,
+                   word8 >=0.0.3 && <0.1
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         lcsm.hs
+
+executable cons
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         cons.hs
+
+executable dna
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         dna.hs
+
+executable fib
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         fib.hs
+
+executable gc
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         gc.hs
+
+executable hamm
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         hamm.hs
+
+executable perm
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         perm.hs
+
+executable prot
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         prot.hs
+
+executable prtm
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         prtm.hs
+
+executable revc
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         revc.hs
+
+executable rna
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         rna.hs
+
+executable subs
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         subs.hs
+

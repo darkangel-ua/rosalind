@@ -1,7 +1,7 @@
 import System.Environment(getArgs)
 import Data.List(isPrefixOf)
-import Debug.Trace
 
+main :: IO ()
 main = do
     (s1:s2:_) <- getArgs >>= read_lines
     mapM_ (\x -> (putStr $ show x) >> putStr " ") $ subs s1 s2
@@ -13,7 +13,7 @@ main = do
 subs s t = go s 1 
   where 
     go [] _ = []
-    go x@(s':s'') sp = if isPrefixOf t x 
+    go x@(_:s'') sp = if isPrefixOf t x 
                            then sp : go s'' (sp + 1)
                            else go s'' (sp + 1)
 

@@ -2,6 +2,8 @@
 
 import System.IO
 
+
+main :: IO () 
 main = do
     n <- input "Enter n: "
     k <- input "Enter k: "
@@ -18,6 +20,7 @@ input msg = do
         _        -> putStrLn "bad input" >> input msg
 
 -- direct but memory hungry
+rfib :: Integer -> Integer -> Integer
 rfib n k = 
     let rfib' 1 = 1
         rfib' 2 = 1
@@ -25,7 +28,8 @@ rfib n k =
     in rfib' n
 
 -- this is tail recursive with explicit state
-rfib_1 n k = if n < 3 then 1 else go (n - 2) (1, 1)
+rfib_1 :: Integer -> Integer -> Integer
+rfib_1 n' k = if n' < 3 then 1 else go (n' - 2) (1, 1)
   where
     go !n (!n1, !n2) 
        | n == 0 = n1 

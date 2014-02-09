@@ -2,6 +2,7 @@ import System.Environment(getArgs)
 import qualified Data.HashMap.Strict as H
 import Data.Maybe(fromJust)
 
+main :: IO ()
 main = do
     s <- getArgs >>= read_line
     print $ mass s
@@ -9,6 +10,7 @@ main = do
     read_line (filename:_) = readFile filename >>= return . head . lines 
     read_line _ = error "one argument required"
 
+get_mass :: Char -> Double
 get_mass x = fromJust $ H.lookup x $ H.fromList [
     ('A',   71.03711),
     ('C',   103.00919),
@@ -31,4 +33,5 @@ get_mass x = fromJust $ H.lookup x $ H.fromList [
     ('W',   186.07931),
     ('Y',   163.06333) 
            ]
+mass :: String -> Double
 mass = sum . (map get_mass) 
