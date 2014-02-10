@@ -127,3 +127,15 @@ executable subs
   ghc-options:     -Wall -rtsopts
   main-is:         subs.hs
 
+executable grph_1
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         grph_1.hs
+
+executable grph_2
+  build-depends:   base >= 4
+  hs-source-dirs:  src
+  ghc-options:     -Wall -rtsopts
+  main-is:         grph_2.hs
+
